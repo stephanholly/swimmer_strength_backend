@@ -3,15 +3,19 @@ var router = express.Router();
 var nodemailer = require('nodemailer');
 const creds = require('../config/config');
 
-var transport = {
-  host: 'smtp.gmail.com',
-  auth: {
-    user: creds.USER,
-    pass: creds.PASS
-  }
-}
 
-var transporter = nodemailer.createTransport(transport)
+var smtpTransport = nodemailer.createTransport("SMTP",{
+    service:"Gmail",
+    auth:{
+        XOAuth2: {
+            user:"arbetarsson@gmail.com",
+            clientId:"543641513493-7b9lvb5n5oec2h07f64e7as621et0i90.apps.googleusercontent.com",
+            clientSecret:"cd1J7eYoeiyQh5rV86F4_Kyy",
+            refreshToken:"1/kIEPysDmkcxjauNxPZICQYa5MB2i0gNP7QVvKKRF-yI"
+        }
+    }
+});
+
 
 transporter.verify((error, success) => {
   if (error) {
