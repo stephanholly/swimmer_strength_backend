@@ -120,7 +120,7 @@ router.post('/tenDayFormSubmit', (req, res, next) => {
 
   var mail = {
     from: name,
-    to: 'info@swimmerstrength.com',  //Change to email address that you want to receive messages on
+    to: 'steph.c.holly@gmail.com',  //Change to email address that you want to receive messages on info@swimmerstrength.com
     subject: `New Swimmer Strength 10-day Core Workout Form Submission`,
     text: content
   }
