@@ -128,7 +128,7 @@ router.post('/tenDayFormSubmit', (req, res, next) => {
   transporter.sendMail(mail, (err, data) => {
     if (err) {
       res.json({
-        msg: err
+        msg: 'fail'
       })
     } else {
       res.json({
