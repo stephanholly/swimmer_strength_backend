@@ -104,4 +104,38 @@ router.post('/sendContact', (req, res, next) => {
   })
 })
 
+
+router.post('/tenDayFormSubmit', (req, res, next) => {
+  console.log(req.body)
+  var name = req.body.name
+  var email = req.body.email
+  var who1 = req.body.who1
+  var who2 = req.body.who2
+  var experience = req.body.experience
+  var age = req.body.age
+  var goal = req.body.goal
+
+
+  var content = `10-day free core workout submission \n name of submitter: ${name} \n email: ${email} \n Is this for the submitter?: ${who1} \n if no: ${who2} \n experience level (1-10): ${experience} \n age: ${age} \n goal/objective: ${goal}`
+
+  var mail = {
+    from: name,
+    to: 'info@swimmerstrength.com',  //Change to email address that you want to receive messages on
+    subject: `New Swimmer Strength 10-day Core Workout Form Submission`,
+    text: content
+  }
+
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      res.json({
+        msg: 'fail'
+      })
+    } else {
+      res.json({
+        msg: 'success'
+      })
+    }
+  })
+})
+
 module.exports = router;
