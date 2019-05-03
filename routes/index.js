@@ -18,14 +18,13 @@ var transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth:{
-            type: 'OAuth2',
-            user: creds.USER,
-            pass: creds.PASS,
-            clientId:"543641513493-7b9lvb5n5oec2h07f64e7as621et0i90.apps.googleusercontent.com",
-            clientSecret:"cd1J7eYoeiyQh5rV86F4_Kyy",
-            refreshToken:"1/kIEPysDmkcxjauNxPZICQYa5MB2i0gNP7QVvKKRF-yI",
-            accessToken: 'ya29.Glv7BnNcz9BopAlvvqoSh8C8NHSvs7uMG0aTIbUNopz_20v3KSBnNRv5gX3eiVCTC4IBgvOIH5ATO9gNNnI516r1vBnLPyKm307pHlikQFnjktr1UNZXh2EomzpY'
-
+      type: 'OAuth2',
+      user: creds.USER,
+      pass: creds.PASS,
+      clientId:"543641513493-7b9lvb5n5oec2h07f64e7as621et0i90.apps.googleusercontent.com",
+      clientSecret:"cd1J7eYoeiyQh5rV86F4_Kyy",
+      refreshToken:"1/kIEPysDmkcxjauNxPZICQYa5MB2i0gNP7QVvKKRF-yI",
+      accessToken: 'ya29.Glv7BnNcz9BopAlvvqoSh8C8NHSvs7uMG0aTIbUNopz_20v3KSBnNRv5gX3eiVCTC4IBgvOIH5ATO9gNNnI516r1vBnLPyKm307pHlikQFnjktr1UNZXh2EomzpY'
     }
 });
 
@@ -133,11 +132,11 @@ router.post('/tenDayFormSubmit', (req, res, next) => {
   var goal = req.body.goal
 
 
-  var content = `10-day free core workout submission \n name of submitter: ${name} \n email: ${email} \n Is this for the submitter?: ${who1} \n if no: ${who2} \n experience level (1-10): ${experience} \n age: ${age} \n goal/objective: ${goal}`
+  var content = `10-day free core workout submission \n name of submitter: ${name} \n email: ${email} \n Is this for the submitter (y/n)?: ${who1} \n if not for submitter, who?: ${who2} \n experience level (1-10): ${experience} \n age: ${age} \n goal/objective: ${goal}`
 
   var mail = {
     from: name,
-    to: 'steph.c.holly@gmail.com',  //Change to email address that you want to receive messages on info@swimmerstrength.com
+    to: 'info@swimmerstrength.com',  //Change to email address that you want to receive messages on info@swimmerstrength.com
     subject: `New Swimmer Strength 10-day Core Workout Form Submission`,
     text: content
   }
