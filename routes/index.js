@@ -130,9 +130,11 @@ router.post('/tenDayFormSubmit', (req, res, next) => {
   var experience = req.body.experience
   var age = req.body.age
   var goal = req.body.goal
+  var country = req.body.country
+  var gender = req.body.gender
 
 
-  var content = `10-day free core workout submission \n name of submitter: ${name} \n email: ${email} \n Is this for the submitter (y/n)?: ${who1} \n if not for submitter, who?: ${who2} \n experience level (1-10): ${experience} \n age: ${age} \n goal/objective: ${goal}`
+  var content = `10-day free core workout submission \n name of submitter: ${name} \n email: ${email} \n Is this for the submitter (y/n)?: ${who1} \n if not for submitter, who?: ${who2} \n experience level (1-10): ${experience} \n age: ${age} \n goal/objective: ${goal} \n gender: ${gender} \n country: ${country}`
 
   var mail = {
     from: name,
